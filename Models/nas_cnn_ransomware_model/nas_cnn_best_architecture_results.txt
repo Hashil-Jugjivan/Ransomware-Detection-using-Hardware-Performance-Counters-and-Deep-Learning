@@ -1,0 +1,313 @@
+Best Model Architecture:
+
+Number of Conv Layers: 1
+Conv Layer 1: Filters=16, Kernel=3, Pool=2, Dropout=0.21029145048004166
+
+Number of FC Layers: 2
+FC Layer 1: Units=192, Dropout=0.1829248250226745
+FC Layer 2: Units=128, Dropout=0.14399403868953103
+
+Batch Size: 16
+Learning Rate: 0.00395413719088903
+Weight Decay: 3.935179884303537e-05
+Early Stopping Patience: 19
+Batch Normalization: True
+Activation Function: Relu/Sigmoid
+
+Test Accuracy: 0.9914
+Test Loss: 0.0455
+
+Classification Report:
+              precision    recall  f1-score   support
+
+         0.0       1.00      0.98      0.99        59
+         1.0       0.98      1.00      0.99        57
+
+    accuracy                           0.99       116
+   macro avg       0.99      0.99      0.99       116
+weighted avg       0.99      0.99      0.99       116
+
+
+################################################################################################################################################################
+
+(.venv) PS C:\Users\Hashil Jugjivan\OneDrive - Nanyang Technological University\Desktop\FYP -Detecting Ransomware Using HPCs\CNN_NAS> python cnn_nas.py
+2025-02-27 00:50:21,492 - INFO - Using device: cuda
+2025-02-27 00:50:21,492 - INFO - Preprocessing data...
+✅ Preprocessing complete. Data saved in '../CNN_NAS/'
+🔹 Train shape: (402, 60, 23), Test shape: (116, 60, 23), Validation shape: (58, 60, 23)
+🔹 Min value: 0.0
+🔹 Max value: 1.0
+🔹 Training set - Malware count: 204
+🔹 Training set - Safe count: 198
+🔹 Test set - Malware count: 57
+🔹 Test set - Safe count: 59
+🔹 Validation set - Malware count: 27
+🔹 Validation set - Safe count: 31
+2025-02-27 00:50:22,357 - INFO - Running simple test model to verify pipeline...
+2025-02-27 00:50:22,405 - INFO - Data shapes: X_train=torch.Size([402, 23, 60]), y_train=torch.Size([402, 1])
+2025-02-27 00:50:22,441 - INFO - FC input size after convolutions: 960
+2025-02-27 00:50:24,871 - INFO - Epoch 1/10, Train Loss: 0.3129, Val Loss: 0.4364, LR: 0.001000
+2025-02-27 00:50:25,128 - INFO - Simple test model - Test Accuracy: 0.9914, Test Loss: 0.0308
+[I 2025-02-27 00:50:25,872] A new study created in RDB with name: cnn_ransomware_nas
+2025-02-27 00:50:25,875 - INFO - Starting Neural Architecture Search with 30 trials
+2025-02-27 00:50:26,254 - INFO - Data shapes: X_train=torch.Size([402, 23, 60]), y_train=torch.Size([402, 1])
+2025-02-27 00:50:26,258 - INFO - FC input size after convolutions: 224
+2025-02-27 00:50:26,388 - INFO - Epoch 1/100, Train Loss: 0.4837, Val Loss: 0.2598, LR: 0.005098
+2025-02-27 00:50:26,765 - INFO - Epoch 11/100, Train Loss: 0.4609, Val Loss: 1.6330, LR: 0.002549
+2025-02-27 00:50:26,963 - INFO - Early stopping triggered at epoch 16
+[I 2025-02-27 00:50:26,993] Trial 0 finished with value: 0.25984591990709305 and parameters: {'num_conv_layers': 3, 'filters_0': 32, 'kernel_size_0': 7, 'pool_size_0': 2, 'conv_dropout_0': 0.3722160746154851, 'filters_1': 48, 'kernel_size_1': 3, 'conv_dropout_1': 0.3987924582369141, 'filters_2': 32, 'kernel_size_2': 5, 'conv_dropout_2': 0.16137805351664924, 'num_fc_layers': 2, 'fc_size_0': 256, 'fc_dropout_0': 0.49569059984825015, 'fc_size_1': 384, 'fc_dropout_1': 0.40145553877476237, 'batch_size': 32, 'learning_rate': 0.005097649542540322, 'weight_decay': 9.397014528615817e-05, 'patience': 15, 'use_batch_norm': False}. Best is trial 0 with value: 0.25984591990709305.
+2025-02-27 00:50:27,313 - INFO - Data shapes: X_train=torch.Size([402, 23, 60]), y_train=torch.Size([402, 1])
+2025-02-27 00:50:27,317 - INFO - FC input size after convolutions: 480
+2025-02-27 00:50:27,420 - INFO - Epoch 1/100, Train Loss: 0.4675, Val Loss: 0.4604, LR: 0.000459
+2025-02-27 00:50:28,264 - INFO - Epoch 11/100, Train Loss: 0.2191, Val Loss: 0.0436, LR: 0.000459
+2025-02-27 00:50:29,061 - INFO - Early stopping triggered at epoch 21
+[I 2025-02-27 00:50:29,087] Trial 1 finished with value: 0.034703233279287815 and parameters: {'num_conv_layers': 2, 'filters_0': 48, 'kernel_size_0': 5, 'pool_size_0': 2, 'conv_dropout_0': 0.3357809162297279, 'filters_1': 32, 'kernel_size_1': 7, 'conv_dropout_1': 0.40819618834618887, 'num_fc_layers': 2, 'fc_size_0': 320, 'fc_dropout_0': 0.36752283132211994, 'fc_size_1': 384, 'fc_dropout_1': 0.45541937043508385, 'batch_size': 16, 'learning_rate': 0.00045919151574123706, 'weight_decay': 2.056149638361584e-06, 'patience': 11, 'use_batch_norm': True}. Best is trial 1 with value: 0.034703233279287815.
+2025-02-27 00:50:29,367 - INFO - Data shapes: X_train=torch.Size([402, 23, 60]), y_train=torch.Size([402, 1])
+2025-02-27 00:50:29,370 - INFO - FC input size after convolutions: 960
+2025-02-27 00:50:29,414 - INFO - Epoch 1/100, Train Loss: 0.3133, Val Loss: 0.3603, LR: 0.001142
+2025-02-27 00:50:29,786 - INFO - Epoch 11/100, Train Loss: 0.0699, Val Loss: 0.0749, LR: 0.001142
+2025-02-27 00:50:29,997 - INFO - Early stopping triggered at epoch 17
+[I 2025-02-27 00:50:30,022] Trial 2 finished with value: 0.05553259467706084 and parameters: {'num_conv_layers': 1, 'filters_0': 32, 'kernel_size_0': 7, 'pool_size_0': 2, 'conv_dropout_0': 0.1794162639298271, 'num_fc_layers': 2, 'fc_size_0': 384, 'fc_dropout_0': 0.3920862686316844, 'fc_size_1': 192, 'fc_dropout_1': 0.36440150144101924, 'batch_size': 32, 'learning_rate': 0.001141730170210088, 'weight_decay': 0.0008590959672889024, 'patience': 11, 'use_batch_norm': True}. Best is trial 1 with value: 0.034703233279287815.
+2025-02-27 00:50:30,313 - INFO - Data shapes: X_train=torch.Size([402, 23, 60]), y_train=torch.Size([402, 1])
+2025-02-27 00:50:30,317 - INFO - FC input size after convolutions: 640
+2025-02-27 00:50:30,418 - INFO - Epoch 1/100, Train Loss: 0.3347, Val Loss: 0.1542, LR: 0.002255
+2025-02-27 00:50:31,086 - INFO - Epoch 11/100, Train Loss: 0.0667, Val Loss: 0.0797, LR: 0.001128
+2025-02-27 00:50:31,295 - INFO - Early stopping triggered at epoch 14
+[I 2025-02-27 00:50:31,322] Trial 3 finished with value: 0.0619411738589406 and parameters: {'num_conv_layers': 2, 'filters_0': 96, 'kernel_size_0': 7, 'pool_size_0': 3, 'conv_dropout_0': 0.20867235764117945, 'filters_1': 64, 'kernel_size_1': 3, 'conv_dropout_1': 0.25013681803961885, 'num_fc_layers': 1, 'fc_size_0': 64, 'fc_dropout_0': 0.3406498801982916, 'batch_size': 16, 'learning_rate': 0.002255282087049409, 'weight_decay': 1.9783721129225087e-06, 'patience': 11, 'use_batch_norm': True}. Best is trial 1 with value: 0.034703233279287815.
+2025-02-27 00:50:31,587 - INFO - Data shapes: X_train=torch.Size([402, 23, 60]), y_train=torch.Size([402, 1])
+2025-02-27 00:50:31,589 - INFO - FC input size after convolutions: 320
+2025-02-27 00:50:31,629 - INFO - Epoch 1/100, Train Loss: 0.2764, Val Loss: 0.2346, LR: 0.006052
+2025-02-27 00:50:31,924 - INFO - Epoch 11/100, Train Loss: 0.0532, Val Loss: 0.1082, LR: 0.003026
+2025-02-27 00:50:32,177 - INFO - Early stopping triggered at epoch 20
+[I 2025-02-27 00:50:32,202] Trial 4 finished with value: 0.08841261430643499 and parameters: {'num_conv_layers': 1, 'filters_0': 16, 'kernel_size_0': 7, 'pool_size_0': 3, 'conv_dropout_0': 0.4084946214691445, 'num_fc_layers': 1, 'fc_size_0': 128, 'fc_dropout_0': 0.3152007726000158, 'batch_size': 32, 'learning_rate': 0.006052329639553848, 'weight_decay': 3.1526865229261513e-06, 'patience': 10, 'use_batch_norm': True}. Best is trial 1 with value: 0.034703233279287815.
+2025-02-27 00:50:32,550 - INFO - Data shapes: X_train=torch.Size([402, 23, 60]), y_train=torch.Size([402, 1])
+2025-02-27 00:50:32,553 - INFO - FC input size after convolutions: 640
+2025-02-27 00:50:32,626 - INFO - Epoch 1/100, Train Loss: 0.6917, Val Loss: 0.6923, LR: 0.000147
+2025-02-27 00:50:32,879 - INFO - Epoch 11/100, Train Loss: 0.3812, Val Loss: 0.3203, LR: 0.000147
+2025-02-27 00:50:33,088 - INFO - Epoch 21/100, Train Loss: 0.1314, Val Loss: 0.1410, LR: 0.000147
+2025-02-27 00:50:33,290 - INFO - Epoch 31/100, Train Loss: 0.0626, Val Loss: 0.1281, LR: 0.000073
+2025-02-27 00:50:33,333 - INFO - Early stopping triggered at epoch 33
+[I 2025-02-27 00:50:33,564] Trial 5 finished with value: 0.09804883599281311 and parameters: {'num_conv_layers': 2, 'filters_0': 128, 'kernel_size_0': 5, 'pool_size_0': 3, 'conv_dropout_0': 0.44474292040359154, 'filters_1': 64, 'kernel_size_1': 3, 'conv_dropout_1': 0.13177656473364255, 'num_fc_layers': 3, 'fc_size_0': 192, 'fc_dropout_0': 0.348761631589895, 'fc_size_1': 256, 'fc_dropout_1': 0.3125622929660266, 'fc_size_2': 128, 'fc_dropout_2': 0.26966945975080825, 'batch_size': 64, 'learning_rate': 0.0001465682595308479, 'weight_decay': 0.0001146563665175268, 'patience': 13, 'use_batch_norm': False}. Best is trial 1 with value: 0.034703233279287815.
+2025-02-27 00:50:33,913 - INFO - Data shapes: X_train=torch.Size([402, 23, 60]), y_train=torch.Size([402, 1])
+2025-02-27 00:50:33,916 - INFO - FC input size after convolutions: 320
+2025-02-27 00:50:33,988 - INFO - Epoch 1/100, Train Loss: 0.6329, Val Loss: 0.4268, LR: 0.000692
+2025-02-27 00:50:34,345 - INFO - Epoch 11/100, Train Loss: 0.0509, Val Loss: 0.2784, LR: 0.000346
+2025-02-27 00:50:34,692 - INFO - Epoch 21/100, Train Loss: 0.0175, Val Loss: 0.2728, LR: 0.000173
+2025-02-27 00:50:34,732 - INFO - Early stopping triggered at epoch 22
+[I 2025-02-27 00:50:34,758] Trial 6 finished with value: 0.1265173079445958 and parameters: {'num_conv_layers': 3, 'filters_0': 128, 'kernel_size_0': 5, 'pool_size_0': 3, 'conv_dropout_0': 0.3750180170111449, 'filters_1': 80, 'kernel_size_1': 3, 'conv_dropout_1': 0.28764212598357264, 'filters_2': 64, 'kernel_size_2': 5, 'conv_dropout_2': 0.21062383605078022, 'num_fc_layers': 1, 'fc_size_0': 384, 'fc_dropout_0': 0.272674168311529, 'batch_size': 32, 'learning_rate': 0.0006922791182626261, 'weight_decay': 0.00012086274443489622, 'patience': 17, 'use_batch_norm': False}. Best is trial 1 with value: 0.034703233279287815.
+2025-02-27 00:50:35,036 - INFO - Data shapes: X_train=torch.Size([402, 23, 60]), y_train=torch.Size([402, 1])
+2025-02-27 00:50:35,039 - INFO - FC input size after convolutions: 2880
+2025-02-27 00:50:35,096 - INFO - Epoch 1/100, Train Loss: 0.5525, Val Loss: 0.2927, LR: 0.003458
+2025-02-27 00:50:35,614 - INFO - Epoch 11/100, Train Loss: 0.4842, Val Loss: 1.5626, LR: 0.001729
+2025-02-27 00:50:35,670 - INFO - Early stopping triggered at epoch 12
+[I 2025-02-27 00:50:35,697] Trial 7 finished with value: 0.2926547493552789 and parameters: {'num_conv_layers': 1, 'filters_0': 96, 'kernel_size_0': 7, 'pool_size_0': 2, 'conv_dropout_0': 0.33976247256118053, 'num_fc_layers': 2, 'fc_size_0': 128, 'fc_dropout_0': 0.13254883388942715, 'fc_size_1': 64, 'fc_dropout_1': 0.2535284998228282, 'batch_size': 16, 'learning_rate': 0.0034584120537230834, 'weight_decay': 0.0001000486426113253, 'patience': 11, 'use_batch_norm': False}. Best is trial 1 with value: 0.034703233279287815.
+2025-02-27 00:50:35,942 - INFO - Data shapes: X_train=torch.Size([402, 23, 60]), y_train=torch.Size([402, 1])
+2025-02-27 00:50:35,943 - INFO - FC input size after convolutions: 960
+2025-02-27 00:50:35,970 - INFO - Epoch 1/100, Train Loss: 0.6000, Val Loss: 0.3537, LR: 0.001412
+2025-02-27 00:50:36,123 - INFO - Epoch 11/100, Train Loss: 0.0509, Val Loss: 0.3190, LR: 0.000706
+2025-02-27 00:50:36,234 - INFO - Early stopping triggered at epoch 18
+[I 2025-02-27 00:50:36,259] Trial 8 finished with value: 0.18821701407432556 and parameters: {'num_conv_layers': 1, 'filters_0': 32, 'kernel_size_0': 5, 'pool_size_0': 2, 'conv_dropout_0': 0.36999508640630907, 'num_fc_layers': 1, 'fc_size_0': 256, 'fc_dropout_0': 0.46419308626003, 'batch_size': 64, 'learning_rate': 0.0014116657865825431, 'weight_decay': 0.0005154807056439176, 'patience': 14, 'use_batch_norm': False}. Best is trial 1 with value: 0.034703233279287815.
+2025-02-27 00:50:36,569 - INFO - Data shapes: X_train=torch.Size([402, 23, 60]), y_train=torch.Size([402, 1])
+2025-02-27 00:50:36,571 - INFO - FC input size after convolutions: 960
+2025-02-27 00:50:36,605 - INFO - Epoch 1/100, Train Loss: 0.5526, Val Loss: 0.6607, LR: 0.000664
+2025-02-27 00:50:36,829 - INFO - Epoch 11/100, Train Loss: 0.0729, Val Loss: 0.0801, LR: 0.000664
+2025-02-27 00:50:37,063 - INFO - Epoch 21/100, Train Loss: 0.0441, Val Loss: 0.0910, LR: 0.000332
+2025-02-27 00:50:37,288 - INFO - Early stopping triggered at epoch 30
+[I 2025-02-27 00:50:37,314] Trial 9 finished with value: 0.06372496485710144 and parameters: {'num_conv_layers': 1, 'filters_0': 48, 'kernel_size_0': 3, 'pool_size_0': 3, 'conv_dropout_0': 0.2951506037932543, 'num_fc_layers': 3, 'fc_size_0': 128, 'fc_dropout_0': 0.36555371165366635, 'fc_size_1': 64, 'fc_dropout_1': 0.2774867257831064, 'fc_size_2': 128, 'fc_dropout_2': 0.15965001419614958, 'batch_size': 64, 'learning_rate': 0.0006642433877392307, 'weight_decay': 1.4114558579065823e-06, 'patience': 15, 'use_batch_norm': True}. Best is trial 1 with value: 0.034703233279287815.
+2025-02-27 00:50:37,713 - INFO - Data shapes: X_train=torch.Size([402, 23, 60]), y_train=torch.Size([402, 1])
+2025-02-27 00:50:37,717 - INFO - FC input size after convolutions: 240
+2025-02-27 00:50:37,826 - INFO - Epoch 1/100, Train Loss: 0.5893, Val Loss: 0.6486, LR: 0.000199
+2025-02-27 00:50:38,707 - INFO - Epoch 11/100, Train Loss: 0.2572, Val Loss: 0.2878, LR: 0.000199
+2025-02-27 00:50:39,656 - INFO - Epoch 21/100, Train Loss: 0.1819, Val Loss: 0.2396, LR: 0.000099
+2025-02-27 00:50:40,745 - INFO - Epoch 31/100, Train Loss: 0.2291, Val Loss: 0.1879, LR: 0.000025
+2025-02-27 00:50:40,850 - INFO - Early stopping triggered at epoch 32
+[I 2025-02-27 00:50:40,876] Trial 10 finished with value: 0.15209434274584055 and parameters: {'num_conv_layers': 2, 'filters_0': 64, 'kernel_size_0': 3, 'pool_size_0': 2, 'conv_dropout_0': 0.4872444175516428, 'filters_1': 16, 'kernel_size_1': 7, 'conv_dropout_1': 0.4758166657876869, 'num_fc_layers': 3, 'fc_size_0': 512, 'fc_dropout_0': 0.2281539232825076, 'fc_size_1': 512, 'fc_dropout_1': 0.48698563768035374, 'fc_size_2': 512, 'fc_dropout_2': 0.4893988023587192, 'batch_size': 16, 'learning_rate': 0.00019856137353048222, 'weight_decay': 9.348494743377996e-06, 'patience': 20, 'use_batch_norm': True}. Best is trial 1 with value: 0.034703233279287815.
+2025-02-27 00:50:41,252 - INFO - Data shapes: X_train=torch.Size([402, 23, 60]), y_train=torch.Size([402, 1])
+2025-02-27 00:50:41,256 - INFO - FC input size after convolutions: 1920
+2025-02-27 00:50:41,358 - INFO - Epoch 1/100, Train Loss: 0.3035, Val Loss: 0.3632, LR: 0.000353
+2025-02-27 00:50:42,155 - INFO - Epoch 11/100, Train Loss: 0.1171, Val Loss: 0.1195, LR: 0.000176
+2025-02-27 00:50:42,468 - INFO - Early stopping triggered at epoch 15
+[I 2025-02-27 00:50:42,494] Trial 11 finished with value: 0.07547151390463114 and parameters: {'num_conv_layers': 2, 'filters_0': 64, 'kernel_size_0': 5, 'pool_size_0': 2, 'conv_dropout_0': 0.1108220847414145, 'filters_1': 128, 'kernel_size_1': 7, 'conv_dropout_1': 0.4034265134409705, 'num_fc_layers': 2, 'fc_size_0': 384, 'fc_dropout_0': 0.4051410811662112, 'fc_size_1': 256, 'fc_dropout_1': 0.11014510004366443, 'batch_size': 16, 'learning_rate': 0.00035272384780885707, 'weight_decay': 1.9924854741889952e-05, 'patience': 12, 'use_batch_norm': True}. Best is trial 1 with value: 0.034703233279287815.    
+2025-02-27 00:50:42,916 - INFO - Data shapes: X_train=torch.Size([402, 23, 60]), y_train=torch.Size([402, 1])
+2025-02-27 00:50:42,921 - INFO - FC input size after convolutions: 896
+2025-02-27 00:50:42,993 - INFO - Epoch 1/100, Train Loss: 0.5245, Val Loss: 0.7856, LR: 0.000457
+2025-02-27 00:50:43,474 - INFO - Epoch 11/100, Train Loss: 0.1269, Val Loss: 0.2052, LR: 0.000457
+2025-02-27 00:50:43,958 - INFO - Epoch 21/100, Train Loss: 0.0870, Val Loss: 0.1788, LR: 0.000228
+2025-02-27 00:50:44,512 - INFO - Epoch 31/100, Train Loss: 0.0752, Val Loss: 0.1495, LR: 0.000228
+2025-02-27 00:50:45,064 - INFO - Epoch 41/100, Train Loss: 0.0443, Val Loss: 0.1244, LR: 0.000057
+2025-02-27 00:50:45,564 - INFO - Epoch 51/100, Train Loss: 0.0723, Val Loss: 0.1366, LR: 0.000029
+2025-02-27 00:50:45,665 - INFO - Early stopping triggered at epoch 53
+[I 2025-02-27 00:50:45,694] Trial 12 finished with value: 0.12433508317917585 and parameters: {'num_conv_layers': 3, 'filters_0': 16, 'kernel_size_0': 5, 'pool_size_0': 2, 'conv_dropout_0': 0.23355490149616376, 'filters_1': 16, 'kernel_size_1': 5, 'conv_dropout_1': 0.3684201593619965, 'filters_2': 128, 'kernel_size_2': 7, 'conv_dropout_2': 0.4808979347832968, 'num_fc_layers': 2, 'fc_size_0': 384, 'fc_dropout_0': 0.4251843327259307, 'fc_size_1': 384, 'fc_dropout_1': 0.43830094181165696, 'batch_size': 32, 'learning_rate': 0.00045667771362372744, 'weight_decay': 0.0007243199783516313, 'patience': 10, 'use_batch_norm': True}. Best is trial 1 with value: 0.034703233279287815.
+2025-02-27 00:50:45,992 - INFO - Data shapes: X_train=torch.Size([402, 23, 60]), y_train=torch.Size([402, 1])
+2025-02-27 00:50:45,994 - INFO - FC input size after convolutions: 1440
+2025-02-27 00:50:46,075 - INFO - Epoch 1/100, Train Loss: 0.2923, Val Loss: 0.2301, LR: 0.001346
+2025-02-27 00:50:46,755 - INFO - Epoch 11/100, Train Loss: 0.0625, Val Loss: 0.1245, LR: 0.000673
+2025-02-27 00:50:47,102 - INFO - Early stopping triggered at epoch 16
+[I 2025-02-27 00:50:47,127] Trial 13 finished with value: 0.06633457122370601 and parameters: {'num_conv_layers': 1, 'filters_0': 48, 'kernel_size_0': 3, 'pool_size_0': 2, 'conv_dropout_0': 0.10711483851039806, 'num_fc_layers': 2, 'fc_size_0': 512, 'fc_dropout_0': 0.24657344393461192, 'fc_size_1': 192, 'fc_dropout_1': 0.36856275674377165, 'batch_size': 16, 'learning_rate': 0.0013463075777525397, 'weight_decay': 8.637918837555087e-06, 'patience': 13, 'use_batch_norm': True}. Best is trial 1 with value: 0.034703233279287815.
+2025-02-27 00:50:47,485 - INFO - Data shapes: X_train=torch.Size([402, 23, 60]), y_train=torch.Size([402, 1])
+2025-02-27 00:50:47,489 - INFO - FC input size after convolutions: 1680
+2025-02-27 00:50:47,557 - INFO - Epoch 1/100, Train Loss: 0.4468, Val Loss: 0.6342, LR: 0.000281
+2025-02-27 00:50:47,986 - INFO - Epoch 11/100, Train Loss: 0.0593, Val Loss: 0.0815, LR: 0.000281
+2025-02-27 00:50:48,391 - INFO - Epoch 21/100, Train Loss: 0.0360, Val Loss: 0.0892, LR: 0.000141
+2025-02-27 00:50:48,638 - INFO - Early stopping triggered at epoch 27
+[I 2025-02-27 00:50:48,663] Trial 14 finished with value: 0.07044582301750779 and parameters: {'num_conv_layers': 2, 'filters_0': 80, 'kernel_size_0': 7, 'pool_size_0': 2, 'conv_dropout_0': 0.23941177219083393, 'filters_1': 112, 'kernel_size_1': 7, 'conv_dropout_1': 0.49542956696761525, 'num_fc_layers': 2, 'fc_size_0': 320, 'fc_dropout_0': 0.41035736695873976, 'fc_size_1': 384, 'fc_dropout_1': 0.4955124376973753, 'batch_size': 32, 'learning_rate': 0.0002814173960729825, 'weight_decay': 3.3012919006406634e-05, 'patience': 17, 'use_batch_norm': True}. Best is trial 1 with value: 0.034703233279287815.   
+2025-02-27 00:50:49,016 - INFO - Data shapes: X_train=torch.Size([402, 23, 60]), y_train=torch.Size([402, 1])
+2025-02-27 00:50:49,019 - INFO - FC input size after convolutions: 480
+2025-02-27 00:50:49,078 - INFO - Epoch 1/100, Train Loss: 0.3096, Val Loss: 0.4843, LR: 0.000881
+2025-02-27 00:50:49,498 - INFO - Epoch 11/100, Train Loss: 0.0351, Val Loss: 0.1222, LR: 0.000441
+2025-02-27 00:50:49,739 - INFO - Early stopping triggered at epoch 17
+[I 2025-02-27 00:50:49,766] Trial 15 finished with value: 0.0678845823276788 and parameters: {'num_conv_layers': 2, 'filters_0': 48, 'kernel_size_0': 5, 'pool_size_0': 2, 'conv_dropout_0': 0.16027217184453318, 'filters_1': 32, 'kernel_size_1': 5, 'conv_dropout_1': 0.20759865055939733, 'num_fc_layers': 2, 'fc_size_0': 448, 'fc_dropout_0': 0.17502956009821896, 'fc_size_1': 512, 'fc_dropout_1': 0.3494149862520069, 'batch_size': 32, 'learning_rate': 0.0008814165599604637, 'weight_decay': 0.00025725498839335935, 'patience': 12, 'use_batch_norm': True}. Best is trial 1 with value: 0.034703233279287815.     
+2025-02-27 00:50:50,101 - INFO - Data shapes: X_train=torch.Size([402, 23, 60]), y_train=torch.Size([402, 1])
+2025-02-27 00:50:50,104 - INFO - FC input size after convolutions: 960
+2025-02-27 00:50:50,186 - INFO - Epoch 1/100, Train Loss: 0.3900, Val Loss: 0.1256, LR: 0.001892
+2025-02-27 00:50:50,903 - INFO - Epoch 11/100, Train Loss: 0.0453, Val Loss: 0.0610, LR: 0.000946
+2025-02-27 00:50:51,602 - INFO - Epoch 21/100, Train Loss: 0.1766, Val Loss: 0.0788, LR: 0.000473
+2025-02-27 00:50:52,165 - INFO - Early stopping triggered at epoch 29
+[I 2025-02-27 00:50:52,203] Trial 16 finished with value: 0.03832393418997526 and parameters: {'num_conv_layers': 1, 'filters_0': 32, 'kernel_size_0': 7, 'pool_size_0': 2, 'conv_dropout_0': 0.290769312391299, 'num_fc_layers': 3, 'fc_size_0': 320, 'fc_dropout_0': 0.3847373158355155, 'fc_size_1': 192, 'fc_dropout_1': 0.18841768800372188, 'fc_size_2': 512, 'fc_dropout_2': 0.47946915358376513, 'batch_size': 16, 'learning_rate': 0.0018915205082298905, 'weight_decay': 4.165138282799326e-06, 'patience': 17, 'use_batch_norm': True}. Best is trial 1 with value: 0.034703233279287815.
+2025-02-27 00:50:52,671 - INFO - Data shapes: X_train=torch.Size([402, 23, 60]), y_train=torch.Size([402, 1])
+2025-02-27 00:50:52,676 - INFO - FC input size after convolutions: 896
+2025-02-27 00:50:52,803 - INFO - Epoch 1/100, Train Loss: 0.6047, Val Loss: 0.7297, LR: 0.000106
+2025-02-27 00:50:53,805 - INFO - Epoch 11/100, Train Loss: 0.3421, Val Loss: 0.1917, LR: 0.000106
+2025-02-27 00:50:54,830 - INFO - Epoch 21/100, Train Loss: 0.2565, Val Loss: 0.1377, LR: 0.000106
+2025-02-27 00:50:55,837 - INFO - Epoch 31/100, Train Loss: 0.2818, Val Loss: 0.1261, LR: 0.000106
+2025-02-27 00:50:56,819 - INFO - Epoch 41/100, Train Loss: 0.1537, Val Loss: 0.1508, LR: 0.000026
+2025-02-27 00:50:57,120 - INFO - Early stopping triggered at epoch 44
+[I 2025-02-27 00:50:57,145] Trial 17 finished with value: 0.09467558236792684 and parameters: {'num_conv_layers': 3, 'filters_0': 80, 'kernel_size_0': 5, 'pool_size_0': 2, 'conv_dropout_0': 0.2876788738597037, 'filters_1': 96, 'kernel_size_1': 7, 'conv_dropout_1': 0.3322994740912489, 'filters_2': 128, 'kernel_size_2': 3, 'conv_dropout_2': 0.41384113899373254, 'num_fc_layers': 3, 'fc_size_0': 320, 'fc_dropout_0': 0.4606618601276721, 'fc_size_1': 320, 'fc_dropout_1': 0.18530476227123466, 'fc_size_2': 512, 'fc_dropout_2': 0.49910156508886494, 'batch_size': 16, 'learning_rate': 0.00010551173915420704, 'weight_decay': 4.780753952849567e-06, 'patience': 17, 'use_batch_norm': True}. Best is trial 1 with value: 0.034703233279287815.
+2025-02-27 00:50:57,493 - INFO - Data shapes: X_train=torch.Size([402, 23, 60]), y_train=torch.Size([402, 1])
+2025-02-27 00:50:57,495 - INFO - FC input size after convolutions: 480
+2025-02-27 00:50:57,597 - INFO - Epoch 1/100, Train Loss: 0.3607, Val Loss: 0.2154, LR: 0.002466
+2025-02-27 00:50:58,293 - INFO - Epoch 11/100, Train Loss: 0.1267, Val Loss: 0.0813, LR: 0.002466
+2025-02-27 00:50:59,010 - INFO - Epoch 21/100, Train Loss: 0.0694, Val Loss: 0.1114, LR: 0.001233
+2025-02-27 00:50:59,748 - INFO - Epoch 31/100, Train Loss: 0.0805, Val Loss: 0.0762, LR: 0.000308
+2025-02-27 00:51:00,496 - INFO - Epoch 41/100, Train Loss: 0.1264, Val Loss: 0.0545, LR: 0.000308
+2025-02-27 00:51:01,452 - INFO - Epoch 51/100, Train Loss: 0.1370, Val Loss: 0.0444, LR: 0.000077
+2025-02-27 00:51:01,861 - INFO - Early stopping triggered at epoch 56
+[I 2025-02-27 00:51:01,886] Trial 18 finished with value: 0.04137366986833513 and parameters: {'num_conv_layers': 1, 'filters_0': 16, 'kernel_size_0': 3, 'pool_size_0': 2, 'conv_dropout_0': 0.27408152034936395, 'num_fc_layers': 3, 'fc_size_0': 256, 'fc_dropout_0': 0.2923981552375669, 'fc_size_1': 128, 'fc_dropout_1': 0.21674423392308706, 'fc_size_2': 320, 'fc_dropout_2': 0.36104362546743196, 'batch_size': 16, 'learning_rate': 0.002465529656464772, 'weight_decay': 3.5056522215050205e-06, 'patience': 20, 'use_batch_norm': True}. Best is trial 1 with value: 0.034703233279287815.
+2025-02-27 00:51:02,277 - INFO - Data shapes: X_train=torch.Size([402, 23, 60]), y_train=torch.Size([402, 1])
+2025-02-27 00:51:02,280 - INFO - FC input size after convolutions: 720
+2025-02-27 00:51:02,388 - INFO - Epoch 1/100, Train Loss: 0.4095, Val Loss: 0.4870, LR: 0.000475
+2025-02-27 00:51:03,335 - INFO - Epoch 11/100, Train Loss: 0.1029, Val Loss: 0.1156, LR: 0.000238
+2025-02-27 00:51:04,471 - INFO - Epoch 21/100, Train Loss: 0.1931, Val Loss: 0.1571, LR: 0.000119
+2025-02-27 00:51:04,584 - INFO - Early stopping triggered at epoch 22
+[I 2025-02-27 00:51:04,610] Trial 19 finished with value: 0.08169080317020416 and parameters: {'num_conv_layers': 2, 'filters_0': 48, 'kernel_size_0': 5, 'pool_size_0': 2, 'conv_dropout_0': 0.33112600935853415, 'filters_1': 48, 'kernel_size_1': 5, 'conv_dropout_1': 0.4321022256497604, 'num_fc_layers': 3, 'fc_size_0': 320, 'fc_dropout_0': 0.2099598748293982, 'fc_size_1': 448, 'fc_dropout_1': 0.12802933227084617, 'fc_size_2': 320, 'fc_dropout_2': 0.3720162400615042, 'batch_size': 16, 'learning_rate': 0.0004752475604420802, 'weight_decay': 1.0563184237790683e-06, 'patience': 18, 'use_batch_norm': True}. Best is trial 1 with value: 0.034703233279287815.
+2025-02-27 00:51:05,018 - INFO - Data shapes: X_train=torch.Size([402, 23, 60]), y_train=torch.Size([402, 1])
+2025-02-27 00:51:05,023 - INFO - FC input size after convolutions: 320
+2025-02-27 00:51:05,125 - INFO - Epoch 1/100, Train Loss: 0.5152, Val Loss: 0.4284, LR: 0.007821
+2025-02-27 00:51:06,098 - INFO - Epoch 11/100, Train Loss: 0.2620, Val Loss: 0.1023, LR: 0.003911
+2025-02-27 00:51:07,072 - INFO - Epoch 21/100, Train Loss: 0.1899, Val Loss: 0.0893, LR: 0.003911
+2025-02-27 00:51:08,007 - INFO - Epoch 31/100, Train Loss: 0.1033, Val Loss: 0.0888, LR: 0.000978
+2025-02-27 00:51:08,357 - INFO - Early stopping triggered at epoch 35
+[I 2025-02-27 00:51:08,383] Trial 20 finished with value: 0.05931731755845249 and parameters: {'num_conv_layers': 2, 'filters_0': 32, 'kernel_size_0': 7, 'pool_size_0': 3, 'conv_dropout_0': 0.32788834437735276, 'filters_1': 32, 'kernel_size_1': 5, 'conv_dropout_1': 0.13687527872352778, 'num_fc_layers': 3, 'fc_size_0': 448, 'fc_dropout_0': 0.3266405176035595, 'fc_size_1': 320, 'fc_dropout_1': 0.1766881803261362, 'fc_size_2': 384, 'fc_dropout_2': 0.11130013213152978, 'batch_size': 16, 'learning_rate': 0.007821322380765348, 'weight_decay': 2.4115039147269836e-05, 'patience': 18, 'use_batch_norm': True}. Best is trial 1 with value: 0.034703233279287815.
+2025-02-27 00:51:08,717 - INFO - Data shapes: X_train=torch.Size([402, 23, 60]), y_train=torch.Size([402, 1])
+2025-02-27 00:51:08,719 - INFO - FC input size after convolutions: 480
+2025-02-27 00:51:08,815 - INFO - Epoch 1/100, Train Loss: 0.2977, Val Loss: 0.1758, LR: 0.002397
+2025-02-27 00:51:09,569 - INFO - Epoch 11/100, Train Loss: 0.1293, Val Loss: 0.0617, LR: 0.001199
+2025-02-27 00:51:10,300 - INFO - Epoch 21/100, Train Loss: 0.0449, Val Loss: 0.0270, LR: 0.001199
+2025-02-27 00:51:11,069 - INFO - Epoch 31/100, Train Loss: 0.0504, Val Loss: 0.0474, LR: 0.000599
+2025-02-27 00:51:11,857 - INFO - Epoch 41/100, Train Loss: 0.1522, Val Loss: 0.0392, LR: 0.000150
+2025-02-27 00:51:11,944 - INFO - Early stopping triggered at epoch 42
+[I 2025-02-27 00:51:11,970] Trial 21 finished with value: 0.023324469628278166 and parameters: {'num_conv_layers': 1, 'filters_0': 16, 'kernel_size_0': 3, 'pool_size_0': 2, 'conv_dropout_0': 0.2604515832107666, 'num_fc_layers': 3, 'fc_size_0': 256, 'fc_dropout_0': 0.2901024798911443, 'fc_size_1': 128, 'fc_dropout_1': 0.22127656752045227, 'fc_size_2': 384, 'fc_dropout_2': 0.3770866449574256, 'batch_size': 16, 'learning_rate': 0.002397461573492572, 'weight_decay': 3.990367607358323e-06, 'patience': 20, 'use_batch_norm': True}. Best is trial 21 with value: 0.023324469628278166.
+2025-02-27 00:51:12,316 - INFO - Data shapes: X_train=torch.Size([402, 23, 60]), y_train=torch.Size([402, 1])
+2025-02-27 00:51:12,318 - INFO - FC input size after convolutions: 480
+2025-02-27 00:51:12,405 - INFO - Epoch 1/100, Train Loss: 0.3103, Val Loss: 0.2315, LR: 0.002501
+2025-02-27 00:51:13,143 - INFO - Epoch 11/100, Train Loss: 0.2440, Val Loss: 0.1159, LR: 0.002501
+2025-02-27 00:51:13,900 - INFO - Epoch 21/100, Train Loss: 0.0512, Val Loss: 0.0864, LR: 0.001251
+2025-02-27 00:51:14,686 - INFO - Epoch 31/100, Train Loss: 0.0783, Val Loss: 0.1159, LR: 0.000625
+2025-02-27 00:51:14,846 - INFO - Early stopping triggered at epoch 33
+[I 2025-02-27 00:51:14,872] Trial 22 finished with value: 0.061242760391905904 and parameters: {'num_conv_layers': 1, 'filters_0': 16, 'kernel_size_0': 3, 'pool_size_0': 2, 'conv_dropout_0': 0.24986199693750638, 'num_fc_layers': 3, 'fc_size_0': 192, 'fc_dropout_0': 0.3797420655675364, 'fc_size_1': 128, 'fc_dropout_1': 0.2228719165457071, 'fc_size_2': 448, 'fc_dropout_2': 0.39658406206198404, 'batch_size': 16, 'learning_rate': 0.0025013228103089083, 'weight_decay': 7.412727056803374e-06, 'patience': 19, 'use_batch_norm': True}. Best is trial 21 with value: 0.023324469628278166.
+2025-02-27 00:51:15,457 - INFO - Data shapes: X_train=torch.Size([402, 23, 60]), y_train=torch.Size([402, 1])
+2025-02-27 00:51:15,460 - INFO - FC input size after convolutions: 960
+2025-02-27 00:51:15,549 - INFO - Epoch 1/100, Train Loss: 0.3205, Val Loss: 0.2126, LR: 0.001965
+2025-02-27 00:51:16,311 - INFO - Epoch 11/100, Train Loss: 0.2325, Val Loss: 0.1450, LR: 0.001965
+2025-02-27 00:51:17,078 - INFO - Epoch 21/100, Train Loss: 0.1784, Val Loss: 0.1208, LR: 0.000491
+2025-02-27 00:51:17,311 - INFO - Early stopping triggered at epoch 24
+[I 2025-02-27 00:51:17,338] Trial 23 finished with value: 0.06379768229089677 and parameters: {'num_conv_layers': 1, 'filters_0': 32, 'kernel_size_0': 3, 'pool_size_0': 2, 'conv_dropout_0': 0.31274611701354454, 'num_fc_layers': 3, 'fc_size_0': 192, 'fc_dropout_0': 0.27671815408645556, 'fc_size_1': 192, 'fc_dropout_1': 0.17791356390585392, 'fc_size_2': 448, 'fc_dropout_2': 0.4315257420781674, 'batch_size': 16, 'learning_rate': 0.0019654572010381908, 'weight_decay': 2.635631710102767e-06, 'patience': 16, 'use_batch_norm': True}. Best is trial 21 with value: 0.023324469628278166.
+2025-02-27 00:51:17,686 - INFO - Data shapes: X_train=torch.Size([402, 23, 60]), y_train=torch.Size([402, 1])
+2025-02-27 00:51:17,688 - INFO - FC input size after convolutions: 1920
+2025-02-27 00:51:17,776 - INFO - Epoch 1/100, Train Loss: 0.3368, Val Loss: 0.2348, LR: 0.001621
+2025-02-27 00:51:18,546 - INFO - Epoch 11/100, Train Loss: 0.1631, Val Loss: 0.1105, LR: 0.001621
+2025-02-27 00:51:19,312 - INFO - Epoch 21/100, Train Loss: 0.0367, Val Loss: 0.0946, LR: 0.000405
+2025-02-27 00:51:19,482 - INFO - Early stopping triggered at epoch 23
+[I 2025-02-27 00:51:19,507] Trial 24 finished with value: 0.06400321051478386 and parameters: {'num_conv_layers': 1, 'filters_0': 64, 'kernel_size_0': 3, 'pool_size_0': 2, 'conv_dropout_0': 0.2754013673358232, 'num_fc_layers': 3, 'fc_size_0': 320, 'fc_dropout_0': 0.43999975289066534, 'fc_size_1': 128, 'fc_dropout_1': 0.304820244444948, 'fc_size_2': 256, 'fc_dropout_2': 0.29126343731627236, 'batch_size': 16, 'learning_rate': 0.0016213742086857968, 'weight_decay': 1.711536588783123e-06, 'patience': 16, 'use_batch_norm': True}. Best is trial 21 with value: 0.023324469628278166.
+2025-02-27 00:51:19,807 - INFO - Data shapes: X_train=torch.Size([402, 23, 60]), y_train=torch.Size([402, 1])
+2025-02-27 00:51:19,809 - INFO - FC input size after convolutions: 480
+2025-02-27 00:51:19,885 - INFO - Epoch 1/100, Train Loss: 0.2609, Val Loss: 0.1425, LR: 0.003906
+2025-02-27 00:51:20,506 - INFO - Epoch 11/100, Train Loss: 0.0723, Val Loss: 0.0460, LR: 0.001953
+2025-02-27 00:51:21,161 - INFO - Epoch 21/100, Train Loss: 0.1042, Val Loss: 0.1500, LR: 0.000977
+2025-02-27 00:51:21,820 - INFO - Epoch 31/100, Train Loss: 0.1120, Val Loss: 0.0933, LR: 0.000244
+2025-02-27 00:51:21,890 - INFO - Early stopping triggered at epoch 32
+[I 2025-02-27 00:51:21,919] Trial 25 finished with value: 0.02987258799839765 and parameters: {'num_conv_layers': 1, 'filters_0': 16, 'kernel_size_0': 5, 'pool_size_0': 2, 'conv_dropout_0': 0.20413672608158717, 'num_fc_layers': 2, 'fc_size_0': 256, 'fc_dropout_0': 0.31157849117382347, 'fc_size_1': 192, 'fc_dropout_1': 0.24138561433078673, 'batch_size': 16, 'learning_rate': 0.003906449101760132, 'weight_decay': 1.4643301354967422e-05, 'patience': 19, 'use_batch_norm': True}. Best is trial 21 with value: 0.023324469628278166.
+2025-02-27 00:51:22,281 - INFO - Data shapes: X_train=torch.Size([402, 23, 60]), y_train=torch.Size([402, 1])
+2025-02-27 00:51:22,284 - INFO - FC input size after convolutions: 1200
+2025-02-27 00:51:22,319 - INFO - Epoch 1/100, Train Loss: 0.5031, Val Loss: 0.2420, LR: 0.003815
+2025-02-27 00:51:22,576 - INFO - Epoch 11/100, Train Loss: 0.2668, Val Loss: 1.7770, LR: 0.001907
+2025-02-27 00:51:22,787 - INFO - Epoch 21/100, Train Loss: 0.2303, Val Loss: 1.7248, LR: 0.000954
+2025-02-27 00:51:22,835 - INFO - Early stopping triggered at epoch 23
+[I 2025-02-27 00:51:22,862] Trial 26 finished with value: 0.18349450826644897 and parameters: {'num_conv_layers': 2, 'filters_0': 16, 'kernel_size_0': 5, 'pool_size_0': 2, 'conv_dropout_0': 0.1804795121650602, 'filters_1': 80, 'kernel_size_1': 7, 'conv_dropout_1': 0.3172897556578833, 'num_fc_layers': 2, 'fc_size_0': 256, 'fc_dropout_0': 0.3095321604065163, 'fc_size_1': 256, 'fc_dropout_1': 0.25891756202342936, 'batch_size': 64, 'learning_rate': 0.0038145270356751246, 'weight_decay': 1.545433124160877e-05, 'patience': 19, 'use_batch_norm': False}. Best is trial 21 with value: 0.023324469628278166.     
+2025-02-27 00:51:23,169 - INFO - Data shapes: X_train=torch.Size([402, 23, 60]), y_train=torch.Size([402, 1])
+2025-02-27 00:51:23,172 - INFO - FC input size after convolutions: 480
+2025-02-27 00:51:23,256 - INFO - Epoch 1/100, Train Loss: 0.3715, Val Loss: 0.1877, LR: 0.003954
+2025-02-27 00:51:23,939 - INFO - Epoch 11/100, Train Loss: 0.1899, Val Loss: 0.1139, LR: 0.003954
+2025-02-27 00:51:24,627 - INFO - Epoch 21/100, Train Loss: 0.1494, Val Loss: 0.1450, LR: 0.003954
+2025-02-27 00:51:25,283 - INFO - Epoch 31/100, Train Loss: 0.0555, Val Loss: 0.0909, LR: 0.000989
+2025-02-27 00:51:25,545 - INFO - Early stopping triggered at epoch 35
+[I 2025-02-27 00:51:25,571] Trial 27 finished with value: 0.01976027199998498 and parameters: {'num_conv_layers': 1, 'filters_0': 16, 'kernel_size_0': 3, 'pool_size_0': 2, 'conv_dropout_0': 0.21029145048004166, 'num_fc_layers': 2, 'fc_size_0': 192, 'fc_dropout_0': 0.1829248250226745, 'fc_size_1': 128, 'fc_dropout_1': 0.14399403868953103, 'batch_size': 16, 'learning_rate': 0.00395413719088903, 'weight_decay': 3.935179884303537e-05, 'patience': 19, 'use_batch_norm': True}. Best is trial 27 with value: 0.01976027199998498.
+2025-02-27 00:51:25,877 - INFO - Data shapes: X_train=torch.Size([402, 23, 60]), y_train=torch.Size([402, 1])
+2025-02-27 00:51:25,879 - INFO - FC input size after convolutions: 480
+2025-02-27 00:51:25,949 - INFO - Epoch 1/100, Train Loss: 0.3181, Val Loss: 0.1276, LR: 0.008905
+2025-02-27 00:51:26,589 - INFO - Epoch 11/100, Train Loss: 0.0829, Val Loss: 0.1393, LR: 0.004452
+2025-02-27 00:51:27,242 - INFO - Epoch 21/100, Train Loss: 0.2306, Val Loss: 0.1469, LR: 0.002226
+2025-02-27 00:51:27,753 - INFO - Early stopping triggered at epoch 29
+[I 2025-02-27 00:51:27,778] Trial 28 finished with value: 0.06673622294329107 and parameters: {'num_conv_layers': 1, 'filters_0': 16, 'kernel_size_0': 3, 'pool_size_0': 2, 'conv_dropout_0': 0.1367480441658117, 'num_fc_layers': 2, 'fc_size_0': 192, 'fc_dropout_0': 0.10916241511500215, 'fc_size_1': 128, 'fc_dropout_1': 0.14837916214035657, 'batch_size': 16, 'learning_rate': 0.008904516360725643, 'weight_decay': 5.230504563353636e-05, 'patience': 19, 'use_batch_norm': True}. Best is trial 27 with value: 0.01976027199998498.
+2025-02-27 00:51:28,083 - INFO - Data shapes: X_train=torch.Size([402, 23, 60]), y_train=torch.Size([402, 1])
+2025-02-27 00:51:28,084 - INFO - FC input size after convolutions: 960
+2025-02-27 00:51:28,141 - INFO - Epoch 1/100, Train Loss: 0.3853, Val Loss: 0.1458, LR: 0.005204
+2025-02-27 00:51:28,635 - INFO - Epoch 11/100, Train Loss: 0.1870, Val Loss: 1.5636, LR: 0.002602
+2025-02-27 00:51:29,131 - INFO - Early stopping triggered at epoch 21
+[I 2025-02-27 00:51:29,162] Trial 29 finished with value: 0.14583816286176443 and parameters: {'num_conv_layers': 1, 'filters_0': 32, 'kernel_size_0': 3, 'pool_size_0': 2, 'conv_dropout_0': 0.2031921412843804, 'num_fc_layers': 2, 'fc_size_0': 64, 'fc_dropout_0': 0.17723961521854176, 'fc_size_1': 64, 'fc_dropout_1': 0.22588549462033275, 'batch_size': 16, 'learning_rate': 0.0052040002106998745, 'weight_decay': 4.254870911242558e-05, 'patience': 20, 'use_batch_norm': False}. Best is trial 27 with value: 0.01976027199998498.
+2025-02-27 00:51:29,163 - INFO - NAS completed in 1.05 minutes
+2025-02-27 00:51:29,163 - INFO - Best trial:
+2025-02-27 00:51:29,166 - INFO -   Value (validation loss): 0.01976
+2025-02-27 00:51:29,167 - INFO -   Params:
+2025-02-27 00:51:29,167 - INFO -     num_conv_layers: 1
+2025-02-27 00:51:29,167 - INFO -     filters_0: 16
+2025-02-27 00:51:29,167 - INFO -     kernel_size_0: 3
+2025-02-27 00:51:29,167 - INFO -     pool_size_0: 2
+2025-02-27 00:51:29,168 - INFO -     conv_dropout_0: 0.21029145048004166
+2025-02-27 00:51:29,168 - INFO -     num_fc_layers: 2
+2025-02-27 00:51:29,168 - INFO -     fc_size_0: 192
+2025-02-27 00:51:29,168 - INFO -     fc_dropout_0: 0.1829248250226745
+2025-02-27 00:51:29,168 - INFO -     fc_size_1: 128
+2025-02-27 00:51:29,168 - INFO -     fc_dropout_1: 0.14399403868953103
+2025-02-27 00:51:29,169 - INFO -     batch_size: 16
+2025-02-27 00:51:29,169 - INFO -     learning_rate: 0.00395413719088903
+2025-02-27 00:51:29,169 - INFO -     weight_decay: 3.935179884303537e-05
+2025-02-27 00:51:29,169 - INFO -     patience: 19
+2025-02-27 00:51:29,169 - INFO -     use_batch_norm: True
+C:\Users\Hashil Jugjivan\OneDrive - Nanyang Technological University\Desktop\FYP -Detecting Ransomware Using HPCs\CNN_NAS\cnn_nas.py:396: ExperimentalWarning: plot_optimization_history is experimental (supported from v2.2.0). The interface can change in the future.
+  optuna.visualization.matplotlib.plot_optimization_history(study)
+C:\Users\Hashil Jugjivan\OneDrive - Nanyang Technological University\Desktop\FYP -Detecting Ransomware Using HPCs\CNN_NAS\cnn_nas.py:401: ExperimentalWarning: plot_param_importances is experimental (supported from v2.2.0). The interface can change in the future.
+  optuna.visualization.matplotlib.plot_param_importances(study)
+2025-02-27 00:51:30,171 - INFO - Best architecture parameters:
+2025-02-27 00:51:30,171 - INFO - Conv layers: 1
+2025-02-27 00:51:30,172 - INFO - Filters: [16]
+2025-02-27 00:51:30,172 - INFO - Kernel sizes: [3]
+2025-02-27 00:51:30,172 - INFO - Pool sizes: [2]
+2025-02-27 00:51:30,177 - INFO - Data shapes: X_train=torch.Size([402, 23, 60]), y_train=torch.Size([402, 1])
+2025-02-27 00:51:30,179 - INFO - FC input size after convolutions: 480
+2025-02-27 00:51:30,185 - INFO - Model parameter count: 118977
+2025-02-27 00:51:30,294 - INFO - Epoch 1/150, Train Loss: 0.3252, Val Loss: 0.4587, LR: 0.003954
+2025-02-27 00:51:31,135 - INFO - Epoch 11/150, Train Loss: 0.1619, Val Loss: 0.1255, LR: 0.003954
+2025-02-27 00:51:31,799 - INFO - Epoch 21/150, Train Loss: 0.1641, Val Loss: 0.0970, LR: 0.000989
+2025-02-27 00:51:32,118 - INFO - Early stopping triggered at epoch 26
+2025-02-27 00:51:32,256 - INFO - Test Accuracy: 0.9914
+2025-02-27 00:51:32,256 - INFO - Test Loss: 0.0455
+2025-02-27 00:51:32,260 - INFO - Classification Report:
+              precision    recall  f1-score   support
+
+         0.0       1.00      0.98      0.99        59
+         1.0       0.98      1.00      0.99        57
+
+    accuracy                           0.99       116
+   macro avg       0.99      0.99      0.99       116
+weighted avg       0.99      0.99      0.99       116

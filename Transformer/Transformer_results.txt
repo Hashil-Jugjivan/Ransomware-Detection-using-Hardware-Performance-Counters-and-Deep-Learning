@@ -1,0 +1,86 @@
+(.venv) PS C:\Users\Hashil Jugjivan\OneDrive - Nanyang Technological University\Desktop\FYP -Detecting Ransomware Using HPCs\Transformer> python .\train_transformer.py
+✅ Preprocessing complete. Data saved in '../Transformer/'
+🔹 Train shape: (402, 60, 23), Test shape: (116, 60, 23), Validation shape: (58, 60, 23)
+🔹 Min value: 0.0
+🔹 Max value: 1.0
+🔹 Training set - Malware count: 204
+🔹 Training set - Safe count: 198
+🔹 Test set - Malware count: 57
+🔹 Test set - Safe count: 59
+🔹 Validation set - Malware count: 27
+🔹 Validation set - Safe count: 31
+Data preprocessing complete.
+
+C:\Users\Hashil Jugjivan\OneDrive - Nanyang Technological University\Desktop\FYP -Detecting Ransomware Using HPCs\.venv\Lib\site-packages\torch\nn\modules\transformer.py:508: UserWarning: The PyTorch API of nested tensors is in prototype stage and will change in the near future. We recommend specifying layout=torch.jagged when constructing a nested tensor, as this layout receives active development, has better operator coverage, and works with torch.compile. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\pytorch\aten\src\ATen\NestedTensorImpl.cpp:182.)
+  output = torch._nested_tensor_from_mask(
+Epoch 1/150 | Train Loss: 0.7011 | Val Loss: 0.6871
+Epoch 2/150 | Train Loss: 0.6707 | Val Loss: 0.6582
+Epoch 3/150 | Train Loss: 0.6301 | Val Loss: 0.5914
+Epoch 4/150 | Train Loss: 0.5395 | Val Loss: 0.5070
+Epoch 5/150 | Train Loss: 0.4486 | Val Loss: 0.4483
+Epoch 6/150 | Train Loss: 0.4036 | Val Loss: 0.4378
+Epoch 7/150 | Train Loss: 0.3561 | Val Loss: 0.3952
+Epoch 8/150 | Train Loss: 0.3428 | Val Loss: 0.3587
+Epoch 9/150 | Train Loss: 0.2852 | Val Loss: 0.1888
+Epoch 10/150 | Train Loss: 0.2198 | Val Loss: 0.0649
+Epoch 11/150 | Train Loss: 0.1549 | Val Loss: 0.0701
+Epoch 12/150 | Train Loss: 0.0698 | Val Loss: 0.0263
+Epoch 13/150 | Train Loss: 0.0662 | Val Loss: 0.0342
+Epoch 14/150 | Train Loss: 0.1863 | Val Loss: 0.2661
+Epoch 15/150 | Train Loss: 0.3948 | Val Loss: 0.4387
+Epoch 16/150 | Train Loss: 0.1941 | Val Loss: 0.0275
+Epoch 17/150 | Train Loss: 0.0537 | Val Loss: 0.0312
+Epoch 18/150 | Train Loss: 0.0364 | Val Loss: 0.3711
+Epoch 19/150 | Train Loss: 0.1097 | Val Loss: 0.0053
+Epoch 20/150 | Train Loss: 0.0279 | Val Loss: 0.0036
+Epoch 21/150 | Train Loss: 0.0053 | Val Loss: 0.0022
+Epoch 22/150 | Train Loss: 0.0279 | Val Loss: 0.0930
+Epoch 23/150 | Train Loss: 0.0370 | Val Loss: 0.0043
+Epoch 24/150 | Train Loss: 0.0420 | Val Loss: 0.0219
+Epoch 25/150 | Train Loss: 0.0211 | Val Loss: 0.3200
+Epoch 26/150 | Train Loss: 0.0979 | Val Loss: 0.0011
+Epoch 27/150 | Train Loss: 0.0446 | Val Loss: 0.0009
+Epoch 28/150 | Train Loss: 0.0476 | Val Loss: 0.0008
+Epoch 29/150 | Train Loss: 0.0119 | Val Loss: 0.0007
+Epoch 30/150 | Train Loss: 0.0089 | Val Loss: 0.0006
+Epoch 31/150 | Train Loss: 0.0197 | Val Loss: 0.0014
+Epoch 32/150 | Train Loss: 0.0061 | Val Loss: 0.0026
+Epoch 33/150 | Train Loss: 0.0062 | Val Loss: 0.0309
+Epoch 34/150 | Train Loss: 0.0336 | Val Loss: 0.0631
+Epoch 35/150 | Train Loss: 0.0256 | Val Loss: 0.0004
+Epoch 36/150 | Train Loss: 0.0326 | Val Loss: 0.0016
+Epoch 37/150 | Train Loss: 0.0140 | Val Loss: 0.0005
+Epoch 38/150 | Train Loss: 0.0117 | Val Loss: 0.0031
+Epoch 39/150 | Train Loss: 0.0179 | Val Loss: 0.0137
+Epoch 40/150 | Train Loss: 0.0194 | Val Loss: 0.0680
+Epoch 41/150 | Train Loss: 0.0006 | Val Loss: 0.0578
+Epoch 42/150 | Train Loss: 0.0109 | Val Loss: 0.0802
+Epoch 43/150 | Train Loss: 0.0069 | Val Loss: 0.0518
+Epoch 44/150 | Train Loss: 0.0255 | Val Loss: 0.0929
+Epoch 45/150 | Train Loss: 0.0108 | Val Loss: 0.0386
+Epoch 46/150 | Train Loss: 0.0038 | Val Loss: 0.1056
+Epoch 47/150 | Train Loss: 0.0180 | Val Loss: 0.0209
+Epoch 48/150 | Train Loss: 0.0058 | Val Loss: 0.0377
+Epoch 49/150 | Train Loss: 0.0067 | Val Loss: 0.0504
+Epoch 50/150 | Train Loss: 0.0025 | Val Loss: 0.0488
+Early stopping triggered at epoch 50
+
+
+Evaluation Metrics:
+Accuracy:  0.9828
+Precision: 1.0000
+Recall:    0.9649
+F1-Score:  0.9821
+
+Classification Report:
+              precision    recall  f1-score   support
+
+         0.0     0.9672    1.0000    0.9833        59
+         1.0     1.0000    0.9649    0.9821        57
+
+    accuracy                         0.9828       116
+   macro avg     0.9836    0.9825    0.9827       116
+weighted avg     0.9833    0.9828    0.9827       116
+
+
+

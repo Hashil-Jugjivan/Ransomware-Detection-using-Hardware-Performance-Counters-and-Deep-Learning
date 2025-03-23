@@ -1,0 +1,23 @@
+
+
+
+====== Evaluation on Test Set ======
+
+Confusion Matrix:
+[[57  2]
+ [ 0 57]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+        Safe     1.0000    0.9661    0.9828        59
+     Malware     0.9661    1.0000    0.9828        57
+
+    accuracy                         0.9828       116
+   macro avg     0.9831    0.9831    0.9828       116
+weighted avg     0.9833    0.9828    0.9828       116
+
+Accuracy: 0.9828
+Precision: 0.9661
+Recall: 1.0000
+F1 Score: 0.9828

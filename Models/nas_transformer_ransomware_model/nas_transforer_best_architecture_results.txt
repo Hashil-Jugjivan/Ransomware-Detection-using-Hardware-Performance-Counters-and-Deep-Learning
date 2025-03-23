@@ -1,0 +1,46 @@
+Best Transformer Model Architecture:
+
+Number of Transformer Layers: 3
+Model Dimension (d_model): 32
+Number of Attention Heads (nhead): 2
+Feedforward Dimension: 512
+Activation Function: gelu
+Dropout Rate: 0.4258251381649406
+Use Positional Encoding: False
+Use Residual Connections: True
+Pooling Strategy: mean
+
+FC Layer Sizes: [32, 16]
+
+Training Parameters:
+Batch Size: 16
+Learning Rate: 0.0009847304889551945
+Weight Decay: 0.00033469493881814444
+Use Data Augmentation: True
+Gradient Clipping Value: 0.5
+Early Stopping Patience: 20
+Use Learning Rate Scheduler: False
+Total Parameters: 115,361
+
+Confusion Matrix:
+[[59  0]
+ [ 2 55]]
+
+Test Metrics:
+Test Loss: 0.8740
+Test Accuracy: 0.9828
+Test Precision: 1.0000
+Test Recall: 0.9649
+Test F1 Score: 0.9821
+
+Classification Report:
+              precision    recall  f1-score   support
+
+        Safe       0.97      1.00      0.98        59
+     Malware       1.00      0.96      0.98        57
+
+    accuracy                           0.98       116
+   macro avg       0.98      0.98      0.98       116
+weighted avg       0.98      0.98      0.98       116
+
+

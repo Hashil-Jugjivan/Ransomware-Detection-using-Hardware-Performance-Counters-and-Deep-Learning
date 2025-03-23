@@ -1,0 +1,39 @@
+Best LSTM Model Architecture:
+
+Number of LSTM Layers: 1
+LSTM Hidden Sizes: [32]
+Bidirectional: True
+LSTM Dropout: 0.4863511687193945
+
+Number of FC Layers: 1
+FC Layer Sizes: [32]
+FC Dropout: 0.15097275011801622
+
+Batch Size: 16
+Learning Rate: 0.006944785741985918
+Weight Decay: 0.00010051077433485776
+Use Batch Normalization: True
+Activation Function: tanh
+Early Stopping Patience: 17
+Total Parameters: 16,769
+
+Test Metrics:
+Test Loss: 0.0177
+Test Accuracy: 0.9914
+Test Precision: 1.0000
+Test Recall: 0.9825
+Test F1 Score: 0.9912
+
+Confusion Matrix:
+[[59  0]
+ [ 1 56]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+        Safe       0.98      1.00      0.99        59
+     Malware       1.00      0.98      0.99        57
+
+    accuracy                           0.99       116
+   macro avg       0.99      0.99      0.99       116
+weighted avg       0.99      0.99      0.99       116
