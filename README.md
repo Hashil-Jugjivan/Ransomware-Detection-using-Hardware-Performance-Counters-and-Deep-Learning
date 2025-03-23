@@ -82,13 +82,28 @@ Pandas
 
 See `requirements.txt` for a complete list of dependencies.
 
+## Installation and Setup
+
+1. Clone the repository:
+```bash
+git clone https://github.com/Hashil-Jugjivan/Ransomware-Detection-using-Hardware-Performance-Counters-and-Deep-Learning.git
+```
+2. Create and activate a virtual environment (optional but recommended):
+```bash
+python -m venv venv
+source venv/bin/activate # On Windows, use: venv\Scripts\activate
+```
+3. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
 ## Usage
 
 1. **Data Preprocessing**:
    ```python
    python Data_Preprocessing/normalization_small.py
    ```
-
 2. **Training Models**:
    ```python
    # Train CNN
@@ -128,5 +143,11 @@ See `requirements.txt` for a complete list of dependencies.
 - Integrating the models into real-time detection systems
 - Exploring multi-class classification for specific ransomware family identification
 
+## Citation
+
+If you use this code in your research, please cite:
+
+Jugjivan, H. (2024). Detecting Ransomware using Deep Learning and Hardware Performance Counters.
+Nanyang Technological University, Singapore.
 
 
